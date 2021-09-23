@@ -8,6 +8,8 @@ function getDayOfTheWeek(day, month, year){
     let cal1 = Math.floor((year.slice(-2) / 12));
     let cal2 = Math.floor((year.slice(-2) % 12));
     let cal3 = Math.floor((year.slice(-2) % 12)/4);
+    // We can do year%100 instead of slice(-2)
+
     let monthNum ;
      month= month.toLowerCase()
 
@@ -42,9 +44,8 @@ function getDayOfTheWeek(day, month, year){
     //--->>>Special dates:
     // Call the Leap year function, Check if is true and..
 
-    let leap = isLeapYear(year);
 
-    if ((leap  && month === "january") || (leap === true && month === "february")){
+    if ( isLeapYear(year) && (month === "january" || month === "february")){
         monthNum=-1;
 
          if( year >= 2100){
@@ -82,7 +83,6 @@ function isLeapYear (year) {
     return (year % 4 === 0 || year % 400 === 0) && !year % 100 === 0 ;
 //--->>> https://www.mathsisfun.com/leap-years.html
 }
-
 
 
 function makeCalender() {
