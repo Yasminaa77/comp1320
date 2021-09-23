@@ -9,32 +9,33 @@ function getDayOfTheWeek(day, month, year){
     let cal2 = Math.floor((year.slice(-2) % 12));
     let cal3 = Math.floor((year.slice(-2) % 12)/4);
     let monthNum ;
+     month= month.toLowerCase()
 
     //--->>> Passing a month number for each typed "month"
-    if (month === "January" || month === "October" ){
+    if (month === "january" || month === "october" ){
         monthNum = 1;
 
-    }else if(month === "April" || month === "July" ){
+    }else if(month === "april" || month === "july" ){
         monthNum = 0;
 
-    }else if (month === "February" || month === "November" || month === "March"){
+    }else if (month === "february" || month === "november" || month === "march"){
         monthNum = 4;
 
-    }else if(month === "August" ){
+    }else if(month === "august" ){
         // console.log("it works")
         monthNum = 3;
 
-    }else if(month === "May"  ){
+    }else if(month === "may"  ){
         monthNum = 2;
 
-    }else if(month === "June" ){
+    }else if(month === "june" ){
          monthNum = 5;
 
-    }else if(month === "September" || month === "December" ) {
+    }else if(month === "september" || month === "december" ) {
         monthNum = 6;
 
     }else{
-        console.log("PLEASE ENTER THE VALID MONTH NAME")
+        // console.log(" Month name is not valid")
     }
 
 
@@ -43,7 +44,7 @@ function getDayOfTheWeek(day, month, year){
 
     let leap = isLeapYear(year);
 
-    if ((leap === true && month === "January") || (leap === true && month === "February")){
+    if ((leap  && month === "january") || (leap === true && month === "february")){
         monthNum=-1;
 
          if( year >= 2100){
@@ -76,14 +77,11 @@ function getDayOfTheWeek(day, month, year){
 
 
 
-function isLeapYear (year){
+function isLeapYear (year) {
 
-    if((year % 4 ===0 || year % 400 ===0  ) && !year % 100 === 0){
-        return true;
-    }
-    return false;
-}
+    return (year % 4 === 0 || year % 400 === 0) && !year % 100 === 0 ;
 //--->>> https://www.mathsisfun.com/leap-years.html
+}
 
 
 
@@ -121,9 +119,6 @@ function makeCalender() {
              }
 
      }
-
-
-
 
 
 }
